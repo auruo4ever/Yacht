@@ -1,23 +1,19 @@
 package io.swagger.model;
 
+
+
+import java.util.Date;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.LocalDate;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
 
-/**
- * Order
- */
 @Validated
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2022-03-23T09:25:02.102Z[GMT]")
 
@@ -32,12 +28,12 @@ public class Order   {
   private Long id = null;
 
   @JsonProperty("bookingDateStart")
-  @JsonFormat(pattern="yyyy-MM-dd")
-  private LocalDate bookingDateStart = null;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  private Date bookingDateStart = null;
 
   @JsonProperty("bookingDateEnd")
-  @JsonFormat(pattern="yyyy-MM-dd")
-  private LocalDate bookingDateEnd = null;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+  private Date bookingDateEnd = null;
 
   @JsonProperty("complete")
   private Boolean complete = false;
@@ -73,27 +69,22 @@ public class Order   {
   }
 
 
-  public Order bookingDateStart(LocalDate bookingDateStart) {
+  public Order bookingDateStart(Date bookingDateStart) {
     this.bookingDateStart = bookingDateStart;
     return this;
   }
 
-  /**
-   * Get bookingDateStart
-   * @return bookingDateStart
-   **/
-  @Schema(description = "")
-  
-    @Valid
-    public LocalDate getBookingDateStart() {
+
+    public Date getBookingDateStart() {
     return bookingDateStart;
   }
 
-  public void setBookingDateStart(LocalDate bookingDateStart) {
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+  public void setBookingDateStart(Date bookingDateStart) {
     this.bookingDateStart = bookingDateStart;
   }
 
-  public Order bookingDateEnd(LocalDate bookingDateEnd) {
+  public Order bookingDateEnd(Date bookingDateEnd) {
     this.bookingDateEnd = bookingDateEnd;
     return this;
   }
@@ -103,13 +94,13 @@ public class Order   {
    * @return bookingDateEnd
    **/
   @Schema(description = "")
-  
-    @Valid
-    public LocalDate getBookingDateEnd() {
+
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+  public Date getBookingDateEnd() {
     return bookingDateEnd;
   }
 
-  public void setBookingDateEnd(LocalDate bookingDateEnd) {
+  public void setBookingDateEnd(Date bookingDateEnd) {
     this.bookingDateEnd = bookingDateEnd;
   }
 

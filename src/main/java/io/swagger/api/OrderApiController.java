@@ -58,14 +58,16 @@ public class OrderApiController implements OrderApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                System.out.println(body);
+                System.out.println(body.getBookingDateStart());
+                System.out.println(body.getBookingDateEnd());
                 return ResponseEntity.ok(orderService.addOrder(body));
             } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<Order>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }
-
+        System.out.println(body);
+        log.error("Couldn't serialize response for content type application/json");
         return new ResponseEntity<Order>(HttpStatus.NOT_IMPLEMENTED);
     }
 

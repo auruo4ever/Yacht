@@ -36,7 +36,6 @@ app.controller(
                     },
                     'Accept' : 'application/json'
                 }).then(function onSuccess(data) {
-                    window.alert(JSON.stringify(data.data));
                     $http.get('http://localhost:8080/yachtMarina/order').then(
                         function(response) {
                             $scope.orders = response.data;
