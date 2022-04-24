@@ -79,7 +79,6 @@ public class Order   {
     return bookingDateStart;
   }
 
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
   public void setBookingDateStart(Date bookingDateStart) {
     this.bookingDateStart = bookingDateStart;
   }
@@ -95,7 +94,6 @@ public class Order   {
    **/
   @Schema(description = "")
 
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
   public Date getBookingDateEnd() {
     return bookingDateEnd;
   }
