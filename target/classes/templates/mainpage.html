@@ -255,14 +255,13 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="bday" ng-model="bookingDateStart" placeholder="Starting date" onfocus="(this.type='date')" pattern="\d{4}-\d{2}-\d{2}" class="form-control rounded-0" required />
+                            <input type="text" name="bday" ng-model="bookingDateStart" placeholder="Start date" onfocus="(this.type='date')" pattern="\d{4}-\d{2}-\d{2}" class="form-control rounded-0" required />
                             <span class="validity"></span>
                         </div>
                         <div class="form-group">
                             <input type="text" name="bday" ng-model="bookingDateEnd" placeholder="Ending date" onfocus="(this.type='date')" pattern="\d{4}-\d{2}-\d{2}" class="form-control rounded-0" required />
                             <span class="validity"></span>
                         </div>
-
                         <div class="form-group tm-text-right">
                             <button type="submit" class="tm-btn tm-btn-primary" ng-click="saveOrder()" ng-disabled="error || incomplete">Send it now</button>
                         </div>

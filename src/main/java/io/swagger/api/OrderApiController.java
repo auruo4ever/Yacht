@@ -1,6 +1,7 @@
 package io.swagger.api;
 
 import io.swagger.service.OrderService;
+import io.swagger.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.threeten.bp.LocalDate;
 import io.swagger.model.Order;
@@ -28,6 +29,9 @@ public class OrderApiController implements OrderApi {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private PlaceService placeService;
+
     private static final Logger log = LoggerFactory.getLogger(OrderApiController.class);
 
     private final ObjectMapper objectMapper;
@@ -54,12 +58,11 @@ public class OrderApiController implements OrderApi {
         return new ResponseEntity<List<Order>>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    public ResponseEntity<Order> postOrder(@Parameter(in = ParameterIn.DEFAULT, description = "book place for the yacht", required=true, schema=@Schema()) @Valid @RequestBody Order body) {
+    public ResponseEntity<Order> postOrder(@RequestBody Order body) {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                System.out.println(body.getBookingDateStart());
-                System.out.println(body.getBookingDateEnd());
+                body.setPlace(placeService.findPlaceById(body.getPlace().getId()));
                 return ResponseEntity.ok(orderService.addOrder(body));
             } catch (Exception e) {
                 log.error("Couldn't serialize response for content type application/json", e);

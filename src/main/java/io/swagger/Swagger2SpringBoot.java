@@ -12,6 +12,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +23,8 @@ import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @EnableOpenApi
-@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration"})
+@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" , "io.swagger.configuration", "io.swagger.aspectJ"})
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class Swagger2SpringBoot implements CommandLineRunner {
 
 

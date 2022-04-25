@@ -35,6 +35,7 @@ public class Order   {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
   private Date bookingDateEnd = null;
 
+
   @JsonProperty("complete")
   private Boolean complete = false;
 
@@ -88,10 +89,6 @@ public class Order   {
     return this;
   }
 
-  /**
-   * Get bookingDateEnd
-   * @return bookingDateEnd
-   **/
   @Schema(description = "")
 
   public Date getBookingDateEnd() {
@@ -107,13 +104,24 @@ public class Order   {
     return this;
   }
 
-  /**
-   * Get complete
-   * @return complete
-   **/
-  @Schema(description = "")
-  
-    public Boolean isComplete() {
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getMail() {
+    return mail;
+  }
+
+  public void setMail(String mail) {
+    this.mail = mail;
+  }
+
+  public Boolean isComplete() {
     return complete;
   }
 

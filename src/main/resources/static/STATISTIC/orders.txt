@@ -1,0 +1,6 @@
+NEW ORDER: 
+place: 1, price: 100
+dates: Wed Apr 27 02:00:00 CEST 2022 - Fri Apr 29 02:00:00 CEST 2022
+contact: alisa, tom@webgoat-cloud.org
+
+THE CUSTOMER OF THE MONTH: tom@webgoat-cloud.org
